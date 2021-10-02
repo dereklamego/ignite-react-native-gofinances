@@ -10,6 +10,8 @@ Esse projeto foi desenvolvido com as tecnologias:
 
 - Typescript
 
+- Expo
+
 ## Projeto
 
 Aplicativo que auxilia na organização das suas finanças.
