@@ -21,7 +21,7 @@ Aplicativo que auxilia na organização das suas finanças.
 - Clone o repositório
 - Instale as dependências com `yarn`
 - Inicie seu app com `expo start`
-- Tenha o Expo Go instalado no seu dispositivo e escanei o QR Code na pagina web de ferramentas de desenvolvedor do Expo, ou abra no seu emulador 
+- Tenha o Expo Go instalado no seu dispositivo e aponte a camerca para o QR Code na página web de ferramentas de desenvolvedor do Expo, ou abra no seu emulador 
 
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
