@@ -51,6 +51,8 @@ function AuthProvider({children}: AuthProviderProps){
         
 
     async function signInWithGoogle(){
+        
+
         try{
             const RESPONSE_TYPE = 'token';
             const SCOPE = encodeURI('profile email');
@@ -62,9 +64,8 @@ function AuthProvider({children}: AuthProviderProps){
 
             if(type === 'success'){
                 const response = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${params.access_token}`)
-                
+               
                 const userInfo = await response.json();
-
                 setUser({
                     id: userInfo.id,
                     email: userInfo.email,
@@ -76,7 +77,8 @@ function AuthProvider({children}: AuthProviderProps){
             }
 
         }catch(error){
-            throw new Error(error);
+            console.log(error)
+            throw new Error(error as string);
         }
     }
 
@@ -107,7 +109,7 @@ function AuthProvider({children}: AuthProviderProps){
            
 
         } catch (error){
-            throw new Error(error);
+            throw new Error(error as string);
         }
     }
 
