@@ -3,12 +3,18 @@ import { mocked } from 'ts-jest/utils';
 import { renderHook, act } from '@testing-library/react-hooks';
 import {AuthProvider, useAuth} from './auth';
 import { startAsync } from 'expo-auth-session';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 fetchMock.enableMocks();
 
 jest.mock('expo-auth-session');
 
 describe('Auth hook',()=>{
+
+  beforeEach(async () => {
+    const userCollectionKey = "@gofinances:user";
+    await AsyncStorage.removeItem(userCollectionKey);
+  });
 
   it('must be able to sign in with an existing Google account', async ()=>{
     const userTest = {
@@ -20,7 +26,7 @@ describe('Auth hook',()=>{
     
     const googleMocked = mocked(startAsync as any);
 
-    googleMocked.mockReturnValue({
+    googleMocked.mockReturnValueOnce({
       type: 'success',
       params: {
         access_token: 'any_token',
