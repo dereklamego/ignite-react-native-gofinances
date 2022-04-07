@@ -4,11 +4,14 @@ import { ThemeProvider } from 'styled-components/native'
 import { Register } from '.';
 import theme from '../../global/styles/theme';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Providers: React.FC = ({ children })=>(
-  <ThemeProvider theme={theme}>
-    { children }
-  </ThemeProvider>
+  <NavigationContainer>
+    <ThemeProvider theme={theme}>
+      { children }
+    </ThemeProvider>
+  </NavigationContainer>
 )
 
 describe('Register Screen', ()=>{

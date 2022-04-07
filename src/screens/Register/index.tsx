@@ -66,7 +66,7 @@ export function Register(){
         name: 'Categoria',
     });
 
-    //const navigation = useNavigation<NavigationProps>();
+    const navigation = useNavigation<NavigationProps>();
 
     const {
         control,
@@ -82,9 +82,9 @@ export function Register(){
     }
 
     function handleOpenSelectCategoryModal(){
-			setTimeout(()=>{
-				setCategoryModalOpen(true)
-			},3000)
+        setTimeout(()=>{
+            setCategoryModalOpen(true)
+        },900)
     }
 
     function handleCloseSelectCategoryModal(){
@@ -129,7 +129,7 @@ export function Register(){
                 name: 'Categoria',
             });
 
-          //  navigation.navigate('Listagem');
+            navigation.navigate('Listagem');
 
         }catch(error){
             console.log(error)

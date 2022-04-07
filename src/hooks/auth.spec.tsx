@@ -45,7 +45,7 @@ describe('Auth hook',()=>{
   it('user must not connect if authentication with Google is terminated', async ()=>{
     const googleMocked = mocked(startAsync as any);
 
-    googleMocked.mockReturnValue({
+    googleMocked.mockReturnValueOnce({
       type: 'cancel',
     })
 
@@ -56,5 +56,24 @@ describe('Auth hook',()=>{
 
     await act(() => result.current.signInWithGoogle());
     expect(result.current.user).not.toHaveProperty('id');
+  });
+
+  it('must give error in google parameters', async ()=>{
+  
+
+   // fetchMock.mockResponseOnce(JSON.stringify(userTest));
+    const { result } = renderHook(() => useAuth(),{
+      wrapper: AuthProvider
+    });
+
+    try{
+      await act(() => result.current.signInWithGoogle());
+    }catch{
+      expect(result.current.user).toEqual({});
+    }
+      
+
+
+    
   });
 })

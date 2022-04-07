@@ -9,7 +9,16 @@ module.exports = {
     "@testing-library/jest-native/extend-expect",
     "jest-styled-components",
   ],
-  setupFiles: ["./jestSetupFile.js"]
+  setupFiles: ["./jestSetupFile.js"],
+  
+  collectCoverage: true,
+  collectCoverageFrom:[
+    "src/**/*.tsx",
+    "!src/**/*.spec.tsx"
+  ],
+  coverageReporters:[
+    "lcov"
+  ]
 
 }
 
